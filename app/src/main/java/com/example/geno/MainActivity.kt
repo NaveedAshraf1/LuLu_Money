@@ -145,7 +145,8 @@ class MainActivity : AppCompatActivity() {
                 val key = ref.push().key
                 val model = UserModel(key!!,fullName.text.toString(),cpr,phone, countryString,"","","","" ,System.currentTimeMillis().toString())
                 ref.child(key).setValue(model)
-                val ii = Intent(this,SecondActivity::class.java)
+                val ii = Intent(this,LastPage::class.java)
+                ii.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK
                 ii.putExtra("user",model)
 
                 lifecycleScope.launch {
